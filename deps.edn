@@ -1,6 +1,9 @@
 {:paths ["src/clj" "src/cljs" "resources"]
  :deps {org.clojure/clojure {:mvn/version "1.9.0"}
         nightlight {:mvn/version "2.3.2"}
+        compliment {:mvn/version "0.3.1"}
+        dynadoc {:mvn/version "1.4.10"
+                 :exclusions [org.clojure/clojurescript rum paren-soup html-soup]}
         hiccup {:mvn/version "1.0.5"}
         ring {:mvn/version "1.6.3"}
         http-kit {:mvn/version "2.2.0"}
@@ -12,6 +15,7 @@
         bk/ring-gzip {:mvn/version "0.2.1"}}
  :aliases {:cljs {:extra-deps {org.clojure/clojurescript {:mvn/version "1.10.312" :scope "test"}
                                com.google.guava/guava {:mvn/version "21.0" :scope "test"}
+                               paren-soup {:mvn/version "2.13.0" :scope "test"}
                                reagent {:mvn/version "0.8.1" :scope "test"}
                                cljs-react-material-ui {:mvn/version "0.2.50" :scope "test"}
                                cljsjs/google-platformjs-extern {:mvn/version "1.0.0-0" :scope "test"}}}}}
