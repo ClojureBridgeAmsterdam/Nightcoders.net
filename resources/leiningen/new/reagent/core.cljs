@@ -1,13 +1,13 @@
 (ns {{namespace}}
   (:require [reagent.core :as r]))
 
-(defonce timer
+(def timer
   (r/atom (js/Date.)))
 
-(defonce time-color
+(def time-color
   (r/atom "red"))
 
-(defonce time-updater
+(def time-updater
   (js/setInterval
    #(reset! timer (js/Date.))
    1000))
@@ -33,8 +33,8 @@
 
 (defn simple-example []
   [:div
-   [greeting "Hello world, it is now"]
-   [clock]
-   [color-input]])
+   (greeting "Hello world, it is now")
+   (clock)
+   (color-input)])
 
-(r/render-component [simple-example] (.querySelector js/document "#content"))
+(r/render-component (simple-example) (.querySelector js/document "#content"))
