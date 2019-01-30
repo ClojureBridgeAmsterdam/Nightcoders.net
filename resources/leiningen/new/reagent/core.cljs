@@ -9,7 +9,8 @@
 
 (def time-updater
   (js/setInterval
-   #(reset! timer (js/Date.))
+   (fn []
+     (reset! timer (js/Date.)))
    1000))
 
 (defn greeting [message]
@@ -29,7 +30,8 @@
    "Time color: "
    [:input {:type "text"
             :value @time-color
-            :on-change #(reset! time-color (-> % .-target .-value))}]])
+            :on-change (fn [event]
+                         (reset! time-color (-> event .-target .-value)))}]])
 
 (defn simple-example []
   [:div
