@@ -1,13 +1,13 @@
 (ns {{namespace}}
   (:require [reagent.core :as r]))
 
-(def timer
+(defonce timer
   (r/atom (js/Date.)))
 
-(def time-color
+(defonce time-color
   (r/atom "red"))
 
-(def time-updater
+(defonce time-updater
   (js/setInterval
    (fn []
      (reset! timer (js/Date.)))
@@ -32,7 +32,6 @@
             :value @time-color
             :on-change (fn [event]
                          (reset! time-color (-> event .-target .-value)))}]])
-
 (defn simple-example []
   [:div
    (greeting "Hello world, it is now")
