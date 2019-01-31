@@ -32,10 +32,10 @@
             :value @time-color
             :on-change (fn [event]
                          (reset! time-color (-> event .-target .-value)))}]])
-(defn simple-example []
+(defn page []
   [:div
    [greeting "Hello world, it is now"]
    [clock]
    [color-input]])
 
-(r/render-component [simple-example] (.querySelector js/document "#content"))
+(r/render-component [page] (.querySelector js/document "#content"))
