@@ -32,6 +32,7 @@
             :value @time-color
             :on-change (fn [event]
                          (reset! time-color (-> event .-target .-value)))}]])
+
 (defn page []
   [:div
    [greeting "Hello world, it is now"]
