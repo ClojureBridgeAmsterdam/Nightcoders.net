@@ -34,8 +34,8 @@
                          (reset! time-color (-> event .-target .-value)))}]])
 (defn simple-example []
   [:div
-   (greeting "Hello world, it is now")
-   (clock)
-   (color-input)])
+   [greeting "Hello world, it is now"]
+   [clock]
+   [color-input]])
 
-(r/render-component (simple-example) (.querySelector js/document "#content"))
+(r/render-component [simple-example] (.querySelector js/document "#content"))
