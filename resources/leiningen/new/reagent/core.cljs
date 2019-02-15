@@ -53,6 +53,16 @@
       (clojure.string/split " ")
       first))
 
+(def flag-urls
+  ["https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Flag_of_Paris_with_coat_of_arms.svg/440px-Flag_of_Paris_with_coat_of_arms.svg.png"
+   "https://upload.wikimedia.org/wikipedia/en/thumb/c/c3/Flag_of_France.svg/60px-Flag_of_France.svg.png"])
+
+(defn flag-img [url]
+  [:img {:src url}])
+
+;; Use for in function below to show all flags using flag-img and the flag-urls.
+(defn flag-images [])
+
 (defn page []
   [:div
    [greeting "Hello world, it is now"]
@@ -61,6 +71,7 @@
                         (add-hours time-diff)
                         make-time-str)]
        [clock city time-str]))
-   [color-input]])
+   [color-input]
+   [flag-images]])
 
 (r/render-component [page] (.querySelector js/document "#content"))
