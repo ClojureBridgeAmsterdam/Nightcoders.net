@@ -55,7 +55,7 @@
 (defn page []
   [:div
    [greeting "Hello world, it is now"]
-   (for [[city time-diff]]
+   (for [[city time-diff] time-differences]
      (let [time-str (-> @timer
                         (add-hours time-diff)
                         make-time-str)]
