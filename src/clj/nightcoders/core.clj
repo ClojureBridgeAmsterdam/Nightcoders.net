@@ -29,7 +29,7 @@
   (:gen-class))
 
 (def ^:const max-file-size (* 1024 1024 2))
-(def ^:const client-id "304442508042-58fmu8pd2u2l5irdbajiucm427aof93r.apps.googleusercontent.com")
+(def ^:const client-id "1078338055157-edci9odfsk3a50802d0j15m1c0t1tjqn.apps.googleusercontent.com")
 
 (def verifier (-> (GoogleIdTokenVerifier$Builder. (NetHttpTransport.) (JacksonFactory.))
                   (doto (.setAudience (Collections/singletonList client-id)))
@@ -402,4 +402,4 @@
         (start opts))))
 
 (defn -main []
-  (start {:port 3000}))
+  (start {:port 3001}))
