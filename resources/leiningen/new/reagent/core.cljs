@@ -37,9 +37,10 @@
                          (reset! time-color (-> event .-target .-value)))}]])
 
 (def time-differences
-  {"London" -1
-   "Abu Dhabi" 3
+  {"Amsterdam" 0
    "Paris" 0
+   "London" -1
+   "Abu Dhabi" 3
    "St Petersburg" 2
    "Shanghai" 7
    "Minneapolis" -7
