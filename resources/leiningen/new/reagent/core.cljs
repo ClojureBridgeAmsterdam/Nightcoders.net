@@ -16,7 +16,9 @@
 (defn greeting [message]
   [:h1 message])
 
-(defn add-hours [date hours]
+(defn add-hours
+  "Adds hours (number) to date."
+  [date hours]
   (let [current-hours (.getHours date)]
     (doto date
       (.setHours (+ current-hours hours)))))
