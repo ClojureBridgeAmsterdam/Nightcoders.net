@@ -85,12 +85,11 @@
   [:div
    [greeting "Hello world, it is now"]
    [:div
-    (doall
-     (for [[city time-diff] time-differences]
-       (let [time-str (-> @timer
-                          (add-hours time-diff)
-                          make-time-str)]
-         [clock city time-str])))]
+    (for [[city time-diff] time-differences]
+      (let [time-str (-> @timer
+                         (add-hours time-diff)
+                         make-time-str)]
+        [clock city time-str]))]
    [color-input]
    [flag-images]])
 
