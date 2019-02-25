@@ -78,8 +78,9 @@
 ;; Use for in function below to show all flags using flag-img and the flag-urls.
 (defn flag-images []
   [:div
-   (for [url flag-urls]
-     [flag-img url])])
+   (doall
+    (for [url flag-urls]
+      [flag-img url]))])
 
 (defn page []
   [:div
