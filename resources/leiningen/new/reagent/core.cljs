@@ -55,36 +55,42 @@
       (clojure.string/split " ")
       first))
 
-
-(def base-url "https://www.countries-ofthe-world.com/flags-normal/")
+(def base-url
+  (str (-> js.window .-location .-protocol)
+       "//"
+       (-> js/window .-location .-host)
+       "/flags/"))
 
 (def flag-urls
-  [(str base-url "flag-of-Netherlands.png")
-   (str base-url "flag-of-France.png")
-   (str base-url "flag-of-United-Kingdom.png")
-   (str base-url "flag-of-United-Arab-Emirates.png")
-   (str base-url "flag-of-Russia.png")
-   (str base-url "flag-of-China.png")
-   (str base-url "flag-of-United-States-of-America.png")
-   (str base-url "flag-of-Canada.png")
-   (str base-url "flag-of-Italy.png")])
+  [(str base-url "netherlands.png")
+   (str base-url "france.png")
+   (str base-url "united-kingdom.png")
+   (str base-url "united-arab-emirates.png")
+   (str base-url "russia.png")
+   (str base-url "china.png")
+   (str base-url "united-states-of-america.png")
+   (str base-url "canada.png")
+   (str base-url "italy.png")])
 
 (defn flag-img [url]
-  [:img {:src url}])
+  [:img.flag {:src url}])
 
 ;; Use for in function below to show all flags using flag-img and the flag-urls.
 (defn flag-images []
-  (for [url flag-urls]
-    [flag-img url]))
+  [:div
+   (for [url flag-urls]
+     [flag-img url])])
 
 (defn page []
   [:div
    [greeting "Hello world, it is now"]
-   (for [[city time-diff] time-differences]
-     (let [time-str (-> @timer
-                        (add-hours time-diff)
-                        make-time-str)]
-       [clock city time-str]))
+   [:div
+    (doall
+     (for [[city time-diff] time-differences]
+       (let [time-str (-> @timer
+                          (add-hours time-diff)
+                          make-time-str)]
+         [clock city time-str])))]
    [color-input]
    [flag-images]])
 

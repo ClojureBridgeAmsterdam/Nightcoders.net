@@ -6,3 +6,7 @@ html {
 .example-clock {
     font-size: 20px;
 }
+
+.flag {
+    padding: 5px;
+}
