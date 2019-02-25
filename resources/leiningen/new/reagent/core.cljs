@@ -47,7 +47,7 @@
    "Shanghai" 7
    "Minneapolis" -7
    "Montreal" -6
-   "Glasgow" -1})
+   "Rome" 0})
 
 (defn make-time-str [datetime]
   (-> datetime
@@ -55,15 +55,27 @@
       (clojure.string/split " ")
       first))
 
+
+(def base-url "https://www.countries-ofthe-world.com/flags-normal/")
+
 (def flag-urls
-  ["https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Flag_of_Paris_with_coat_of_arms.svg/440px-Flag_of_Paris_with_coat_of_arms.svg.png"
-   "https://upload.wikimedia.org/wikipedia/en/thumb/c/c3/Flag_of_France.svg/60px-Flag_of_France.svg.png"])
+  [(str base-url "flag-of-Netherlands.png")
+   (str base-url "flag-of-France.png")
+   (str base-url "flag-of-United-Kingdom.png")
+   (str base-url "flag-of-United-Arab-Emirates.png")
+   (str base-url "flag-of-Russia.png")
+   (str base-url "flag-of-China.png")
+   (str base-url "flag-of-United-States-of-America.png")
+   (str base-url "flag-of-Canada.png")
+   (str base-url "flag-of-Italy.png")])
 
 (defn flag-img [url]
   [:img {:src url}])
 
 ;; Use for in function below to show all flags using flag-img and the flag-urls.
-(defn flag-images [])
+(defn flag-images []
+  (for [url flag-urls]
+    [flag-img url]))
 
 (defn page []
   [:div
