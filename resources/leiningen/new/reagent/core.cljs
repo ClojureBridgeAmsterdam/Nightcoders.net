@@ -54,9 +54,12 @@
       (clojure.string/split " ")
       first))
 
+(defn flag-img [url]
+  [:img {:src url}])
+
 (defn clock [city time-str flag-url]
   [:div.clock
-   [:img {:src flag-url}]
+   ;; Add flag image
    [:div (str city ": ")]
    [:div
     {:style {:color @time-color}}
