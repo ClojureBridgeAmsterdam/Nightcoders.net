@@ -32,7 +32,7 @@
                          (reset! time-color (-> event .-target .-value)))}]])
 
 (def base-url
-  (str (-> js.window .-location .-protocol)
+  (str (-> js/window .-location .-protocol)
        "//"
        (-> js/window .-location .-host)
        "/flags/"))
