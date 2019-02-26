@@ -3,10 +3,8 @@ html {
     background: white;
 }
 
-.example-clock {
+.clock {
     font-size: 20px;
-}
-
-.flag {
+    display: inline-block;
     padding: 5px;
 }

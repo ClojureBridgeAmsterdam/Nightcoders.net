@@ -23,13 +23,6 @@
     (doto date
       (.setHours (+ current-hours hours)))))
 
-(defn clock [city time-str]
-  [:div.example-clock
-   [:div (str city ": ")]
-   [:div
-    {:style {:color @time-color}}
-    time-str]])
-
 (defn color-input []
   [:div.color-input
    "Time color: "
@@ -38,16 +31,22 @@
             :on-change (fn [event]
                          (reset! time-color (-> event .-target .-value)))}]])
 
-(def time-differences
-  {"Amsterdam" 0
-   "Paris" 0
-   "London" -1
-   "Abu Dhabi" 3
-   "St Petersburg" 2
-   "Shanghai" 7
-   "Minneapolis" -7
-   "Montreal" -6
-   "Rome" 0})
+(def base-url
+  (str (-> js.window .-location .-protocol)
+       "//"
+       (-> js/window .-location .-host)
+       "/flags/"))
+
+(def city-data
+  {"Amsterdam"     {:time-diff 0 :flag-url (str base-url "netherlands.png")}
+   "Paris"         {:time-diff 0 :flag-url (str base-url "france.png")}
+   "London"        {:time-diff -1 :flag-url (str base-url "united-kingdom.png")}
+   "Abu Dhabi"     {:time-diff 3 :flag-url (str base-url "united-arab-emirates.png")}
+   "St Petersburg" {:time-diff 2 :flag-url (str base-url "russia.png")}
+   "Shanghai"      {:time-diff 7 :flag-url (str base-url "china.png")}
+   "Minneapolis"   {:time-diff -7 :flag-url (str base-url "united-states-of-america.png")}
+   "Montreal"      {:time-diff -6 :flag-url (str base-url "canada.png")}
+   "Rome"          {:time-diff 0 :flag-url (str base-url "italy.png")}})
 
 (defn make-time-str [datetime]
   (-> datetime
@@ -55,44 +54,31 @@
       (clojure.string/split " ")
       first))
 
-(def base-url
-  (str (-> js.window .-location .-protocol)
-       "//"
-       (-> js/window .-location .-host)
-       "/flags/"))
+(defn clock [city time-str flag-url]
+  [:div.clock
+   [:img {:src flag-url}]
+   [:div (str city ": ")]
+   [:div
+    {:style {:color @time-color}}
+    time-str]])
 
-(def flag-urls
-  [(str base-url "netherlands.png")
-   (str base-url "france.png")
-   (str base-url "united-kingdom.png")
-   (str base-url "united-arab-emirates.png")
-   (str base-url "russia.png")
-   (str base-url "china.png")
-   (str base-url "united-states-of-america.png")
-   (str base-url "canada.png")
-   (str base-url "italy.png")])
-
-(defn flag-img [url]
-  [:img.flag {:src url}])
-
-;; Use for in function below to show all flags using flag-img and the flag-urls.
-(defn flag-images []
+;; Use for in function below to .........
+(defn blabla []
   [:div
    (doall
-    (for [url flag-urls]
-      [flag-img url]))])
+    (for [x (range 10)]
+      x))])
 
 (defn page []
   [:div
    [greeting "Hello world, it is now"]
-   [:div
-    (doall
-     (for [[city time-diff] time-differences]
-       (let [time-str (-> @timer
-                          (add-hours time-diff)
-                          make-time-str)]
-         [clock city time-str])))]
-   [color-input]
-   [flag-images]])
+   (doall
+    (for [[city {:keys [time-diff flag-url]}] city-data]
+      (let [time-str (-> @timer
+                         (add-hours time-diff)
+                         make-time-str)]
+        ^{:key city}
+        [clock city time-str flag-url])))
+   [color-input]])
 
 (r/render-component [page] (.querySelector js/document "#content"))
