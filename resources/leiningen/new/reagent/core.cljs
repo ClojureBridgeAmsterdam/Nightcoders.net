@@ -38,15 +38,15 @@
        "/flags/"))
 
 (def city-data
-  {"Amsterdam"     {:time-diff 0 :flag-url (str base-url "netherlands.png")}
-   "Paris"         {:time-diff 0 :flag-url (str base-url "france.png")}
+  {"Amsterdam"     {:time-diff  0 :flag-url (str base-url "netherlands.png")}
+   "Paris"         {:time-diff  0 :flag-url (str base-url "france.png")}
    "London"        {:time-diff -1 :flag-url (str base-url "united-kingdom.png")}
-   "Abu Dhabi"     {:time-diff 3 :flag-url (str base-url "united-arab-emirates.png")}
-   "St Petersburg" {:time-diff 2 :flag-url (str base-url "russia.png")}
-   "Shanghai"      {:time-diff 7 :flag-url (str base-url "china.png")}
+   "Abu Dhabi"     {:time-diff  3 :flag-url (str base-url "united-arab-emirates.png")}
+   "St Petersburg" {:time-diff  2 :flag-url (str base-url "russia.png")}
+   "Shanghai"      {:time-diff  7 :flag-url (str base-url "china.png")}
    "Minneapolis"   {:time-diff -7 :flag-url (str base-url "united-states-of-america.png")}
    "Montreal"      {:time-diff -6 :flag-url (str base-url "canada.png")}
-   "Rome"          {:time-diff 0 :flag-url (str base-url "italy.png")}})
+   "Rome"          {:time-diff  0 :flag-url (str base-url "italy.png")}})
 
 (defn make-time-str [datetime]
   (-> datetime
