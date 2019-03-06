@@ -19,7 +19,7 @@
   (comp
     (watch)
     (reload :asset-path "nightcoders" :cljs-asset-path ".")
-    (sandbox :file "java.policy")
+    #_(sandbox :file "java.policy")
     (cljs :source-map true :optimizations :none :compiler-options {:asset-path "main.out"})
     (target)))
 
