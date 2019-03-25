@@ -49,6 +49,7 @@
 
           <li>Add a border line around each clock. Can you make it red? Can you make it more rounded?</li>
 
+          <li> Lets add some flags to the clocks! Look at line 63 of the code. Uncomment and enjoy </li>
           <li>Look at <code>city-data</code>, what does it mean? What do the curly braces mean?
             <pre>
 (def city-data
@@ -61,10 +62,16 @@
           </li>
       </ol>
 
-      <h3 id="secondpartloopingmapreducevectorsmap">Second part: looping/map-reduce, vectors, map</h3>
+      <h3 id="secondpartloopingmapreducevectorsmap">Second part: lists and maps</h3>
 
       <ol>
-        <li>Look at <code>for</code> (for example in <code>page</code> on line 72), what does it do?</li>
+        <li> Look again at <code> city data</code>, it is a map! Go to the Clojurescript repl. If you just type city-maps and press enter you should get the content of the map. Using <a href="https://clojuredocs.org/clojure.core/get-in">get-in</a> try to get time-diff for Rome.</li>
+        <li> As we noticed above with the map, we can get the flag-url and the time-diff PER city! Now we would like to know all the cities available. To do so go to the repl and use the function <a href="https://clojuredocs.org/clojure.core/keys">keys</a> on city maps to get the list of cities!</li>
+      </ol>
+
+      <h3 id="thirdpart">Third part: Loops</h3>
+      <ol>
+        <li>Look at <code>for</code> (for example in <code>page</code> on line 72), what does it do? Can you add <code>blabla</code> underneath the color-input at line 87? What happens then?</li>
         <li>Display all flags in the vector how you want on the page (check function <code>flag-img</code>)</li>
       </ol>
 
@@ -92,9 +99,10 @@
         <li>Make the clock go twice as fast</li>
       </ul>
 
-      <h4 id="fourthpart">Fourth part:</h4>
+      <h4 id="fourthpart">Fourth part: advanced</h4>
 
       <ul>
+        <li>Get a list of all flag-urls from the city-data</li>
         <li>Sort the list of cities and times
           <ul>
             <li>first alphabetically</li>

@@ -59,8 +59,9 @@
 
 (defn clock [city time-str flag-url]
   [:div.clock
-   ;; Add flag image
    [:div (str city ": ")]
+   ;; Uncomment this line to add the flags
+   ; [:div [:img {:src flag-url}]]
    [:div
     {:style {:color @time-color}}
     time-str]])
@@ -70,7 +71,7 @@
   [:div
    (doall
     (for [x (range 10)]
-      x))])
+      [:div x]))])
 
 (defn page []
   [:div
@@ -78,6 +79,7 @@
    (doall
     (for [[city {:keys [time-diff flag-url]}] city-data]
       (let [time-str (-> @timer
+                         ;; here convert all time-diff to +1
                          (add-hours time-diff)
                          make-time-str)]
         ^{:key city}
