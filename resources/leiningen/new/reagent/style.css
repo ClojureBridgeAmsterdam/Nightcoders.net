@@ -7,4 +7,7 @@ html {
     font-size: 20px;
     display: inline-block;
     padding: 5px;
+    /* border-style: solid; */
+    /* border-width: 1px; */
+    /* border-color: red; */
 }

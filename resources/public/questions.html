@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8"/>
     <link rel="stylesheet" href="github-markdown.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <style>
      .markdown-body {
        box-sizing: border-box;
@@ -22,44 +23,124 @@
        }
      }
     </style>
+    <script>
+     function toggleVisibility(id) {
+       var div = document.getElementById(id);
+       div.style.display = div.style.display === 'none' ? 'block' : 'none';
+     }
+    </script>
   </head>
   <body>
     <article class="markdown-body">
       <h1 id="questions">Questions</h3>
 
-      <h3 id="intropart">Intro part</h3>
+      <h3 id="intropart">Introduction</h3>
 
-      <p>Run it! Play around! Can you change the color of the time? </p>
+      <p>View the app (click the orange button with View App or see underneath the REPL). Look around in the Intelligent Development Environment (IDE). Can you change the color of the time on the web page? </p>
 
-      <h3 id="firstpartsimple">First part: simple</h3>
+      <h3 id="firstpartsimple">First part: relatively simple</h3>
 
       <ol>
-        <li>Break the application</li>
+        <li>Break the application!</li>
 
-        <li>Change it back using C-z</li>
+        <li>
+          Change it back using CTRL-z (or CMD-z on macOS).
+          <br />
+          <i>
+            <i class="fas fa-info-circle"></i>
+            Mistakes happen when writing code. Be happy and go on! &quot;Failure is an opportunity.&quot; - Lao Tzu
+          </i>
+        </li>
 
-        <li>Change the webpage name on the web-browser tab to your name</li>
+        <li>
+          Change the title of the webpage (as can be seen on the web browser tab) to your own name.
+          <i>
+            <i class="fas fa-smile-wink" onclick="toggleVisibility('change-title')"></i>
+            <span id="change-title" style="display: none">The title element in the &#60;head&#62;&#60;/head&#62;-part of the HTML definition is responsibile for creating the title of the web page (this is agreed upon in the HTML standard that web browsers implement). Look in index.html!</span>
+          </i>
+        </li>
 
-        <li>Change the text on the title from "Hello world" to "hello <your name>"
-          -> Explain here this is a function </li>
-
-          <li>Change the color of the time but this time change it in the code and not the running app</li>
-
-          <li>Change the background color of the website from white to whatever you like! Dont forget to refresh to see the result</li>
-
-          <li>Add a border line around each clock. Can you make it red? Can you make it more rounded?</li>
-
-          <li> Lets add some flags to the clocks! Look at line 63 of the code. Uncomment and enjoy </li>
-          <li>Look at <code>city-data</code>, what does it mean? What do the curly braces mean?
+        <li>
+          Change the text on the title from "Hello world" to "hello &#60;your name&#62;"
+          <br/>
+          <i>
+            <p>
+            <i class="fas fa-info-circle"></i>
+            Here we change the text string we pass to greeting. <code>greeting</code> is a function. By putting the brackets around it we "call" that function (same as we showed earlier in the REPL with <code>(+ 1 1 1) ;; => 3</code>, where <code>+</code> is called with the arguments 1, 1 and 1). The function will evaluate itself (check what code it has in its body) with the arguments (the text string) passed. Substituting the parameter in the body of the function with that what was passed.
+            </p>
+            <p>In our case:</p>
             <pre>
+(defn greeting [message]
+  [:h1 message])
+            </pre>
+            <p>
+              (Here <a href="https://clojuredocs.org/clojure.core/defn" target="_blank"><code>defn</code></a> means we define a new function.)
+              Calling that function as for example <code>[greeting "Hello"]</code> turns into:
+            </p>
+            <pre>
+[:h1 "Hello"]</pre>
+            <p>
+            And this means that on the web page we see <code>&#60;h1&#62;Hello&#60;/h1&#62</code>. And finally that is interpreted as a large header (h1) with the text "Hello".
+            </p>
+            <p>
+              <img src="header.png" alt="H1-header"/>
+            </p>
+            <p>Phew!</p>
+            <p>
+            Putting code into reusable functions that have a descriptive name is one of the central skills of a programmer.
+            </p>
+            <p>
+              &quot;One of the most important concepts in programming is naming
+            and is the same as in sorcery:
+              if you have the name of the spirit you have control over it.&quot; - Harold Abelson in <a href="https://youtu.be/ymsbTVLbyN4" target="_blank">SICP</a>
+            </p>
+          </i>
+        </li>
+
+        <li>
+          Change the color of the time but this time change it in the code and not the running app.
+          <i>
+            <i class="fas fa-smile-wink" onclick="toggleVisibility('change-time-color')"></i>
+            <span id="change-time-color" style="display: none">Look at the <code>time-color</code> function in the cljs file. In the <code>clock</code> function it is used to determine the CSS-style of the div-element that displays the time.</span>
+          </i>
+        </li>
+
+        <li>
+          Change the background color of the website from white to whatever you like! Dont forget to refresh to see the result
+          <i>
+            <i class="fas fa-smile-wink" onclick="toggleVisibility('change-background-color')"></i>
+            <span id="change-background-color" style="display: none">For this we can use the CSS-file style.css</span>
+          </i>
+        </li>
+
+        <li>
+          Add a <a href="https://www.w3schools.com/css/css_border.asp" target="_blank">border line</a> around each clock. Can you make it red? Can you make it more rounded?
+          <i>
+            <i class="fas fa-smile-wink" onclick="toggleVisibility('add-border-line')"></i>
+            <span id="add-border-line" style="display: none">For this we can use the CSS-file style.css that already contains commented outhelp (in CSS putting things between <code>/* /*</code> means that is it a comment and ignored by the compiler.</span>)
+          </i>
+        </li>
+        <li>Lets add some flags to the clocks! Look at line 63 of the code. Uncomment (in Clojure code that is after <code>;</code> is ignored by the compiler) and enjoy.</li>
+        <li>
+          Look at <code>city-data</code>, what does it mean? What do the curly braces mean?
+          <pre>
 (def city-data
   {"Amsterdam"     {:time-diff  0 :flag-url (str base-url "netherlands.png")}
     "Paris"        {:time-diff  0 :flag-url (str base-url "france.png")}
     ...}
-            </pre>
-            </li>
-          <li>What is <code>def</code> in the example above? Find more info in  <a href="http://cljs.info/cheatsheet/"> the clojure cheat sheets </a>           
-          </li>
+          </pre>
+          <br />
+          <i>
+            <p>
+            <i class="fas fa-info-circle"></i>
+            Clojure has four main types of data structures: the list like <code>(+ 1 1 1)</code> (between parentheses), which is interpreted as a function call; the vector like <code>[1 2 3 3 3]</code> (between brackets), that is a list of items; a set like <code>#{"yoga" "meditation"}</code> (in <code>#{}</code>) that contains various items without duplicates, and the map like above (between curly braces) that contain key value associations.
+            </p>
+            <p>Beside these there are atomic data types like integers as <code>12</code>, doubles like <code>1.22</code>, strings like <code>"Hello"</code>, characters like <code>\a \b \c</code>, symbols like <code>greeting</code>, booleans like <code>true</code> and keywords like <code>:time-diff</code>. They all evaluate to themselves, except symbols that point to something else (like a function).</p>
+          </i>
+        </li>
+        <li>
+          What is <code>def</code> in the example above? Find more info in <a href="http://cljs.info/cheatsheet/"> the clojure cheat sheet</a>
+        </li>
       </ol>
 
       <h3 id="secondpartloopingmapreducevectorsmap">Second part: lists and maps</h3>
@@ -162,6 +243,14 @@
             target="_blank"
           >
             Clojure cheatsheet
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://github.com/tallesl/Rich-Hickey-fanclub"
+            target="_blank"
+          >
+            Talks by creator of Clojure (Rich Hickey)
           </a>
         </li>
       </ul>
