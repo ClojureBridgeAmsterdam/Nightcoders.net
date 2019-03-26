@@ -11,3 +11,10 @@ html {
     /* border-width: 1px; */
     /* border-color: red; */
 }
+
+
+.questions-link {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}

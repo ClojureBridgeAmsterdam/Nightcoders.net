@@ -34,19 +34,18 @@
 (def base-url
   (str (-> js/window .-location .-protocol)
        "//"
-       (-> js/window .-location .-host)
-       "/flags/"))
+       (-> js/window .-location .-host)))
 
 (def city-data
-  {"Amsterdam"     {:time-diff  0 :flag-url (str base-url "netherlands.png")}
-   "Paris"         {:time-diff  0 :flag-url (str base-url "france.png")}
-   "London"        {:time-diff -1 :flag-url (str base-url "united-kingdom.png")}
-   "Abu Dhabi"     {:time-diff  3 :flag-url (str base-url "united-arab-emirates.png")}
-   "St Petersburg" {:time-diff  2 :flag-url (str base-url "russia.png")}
-   "Shanghai"      {:time-diff  7 :flag-url (str base-url "china.png")}
-   "Minneapolis"   {:time-diff -7 :flag-url (str base-url "united-states-of-america.png")}
-   "Montreal"      {:time-diff -6 :flag-url (str base-url "canada.png")}
-   "Rome"          {:time-diff  0 :flag-url (str base-url "italy.png")}})
+  {"Amsterdam"     {:time-diff  0 :flag-url (str base-url "/flags/netherlands.png")}
+   "Paris"         {:time-diff  0 :flag-url (str base-url "/flags/france.png")}
+   "London"        {:time-diff -1 :flag-url (str base-url "/flags/united-kingdom.png")}
+   "Abu Dhabi"     {:time-diff  3 :flag-url (str base-url "/flags/united-arab-emirates.png")}
+   "St Petersburg" {:time-diff  2 :flag-url (str base-url "/flags/russia.png")}
+   "Shanghai"      {:time-diff  7 :flag-url (str base-url "/flags/china.png")}
+   "Minneapolis"   {:time-diff -7 :flag-url (str base-url "/flags/united-states-of-america.png")}
+   "Montreal"      {:time-diff -6 :flag-url (str base-url "/flags/canada.png")}
+   "Rome"          {:time-diff  0 :flag-url (str base-url "/flags/italy.png")}})
 
 (defn make-time-str [datetime]
   (-> datetime
@@ -73,6 +72,11 @@
     (for [x (range 10)]
       [:div x]))])
 
+(defn questions-link []
+  [:a.questions-link {:href (str base-url "/questions.html")
+                      :target "_blank"}
+   "Click here to go to the questions"])
+
 (defn page []
   [:div
    [greeting "Hello world, it is now"]
@@ -84,6 +88,7 @@
                          make-time-str)]
         ^{:key city}
         [clock city time-str flag-url])))
-   [color-input]])
+   [color-input]
+   [questions-link]])
 
 (r/render-component [page] (.querySelector js/document "#content"))
