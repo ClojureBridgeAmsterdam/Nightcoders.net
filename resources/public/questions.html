@@ -114,13 +114,13 @@
         </li>
 
         <li>
-          Add a <a href="https://www.w3schools.com/css/css_border.asp" target="_blank">border line</a> around each clock. Can you make it red? Can you make it more rounded?
+          Add a <a href="https://www.w3schools.com/css/css_border.asp" target="_blank">border</a> around each clock. Can you make it red? Can you make it more rounded?
           <i>
             <i class="fas fa-smile-wink" onclick="toggleVisibility('add-border-line')"></i>
-            <span id="add-border-line" style="display: none">For this we can use the CSS-file style.css that already contains commented outhelp (in CSS putting things between <code>/* /*</code> means that is it a comment and ignored by the compiler.</span>)
+            <span id="add-border-line" style="display: none">For this we can use the CSS-file style.css that already contains commented outhelp (in CSS putting things between <code>/* /*</code> means that is it a comment and ignored by the compiler.)</span>
           </i>
         </li>
-        <li>Lets add some flags to the clocks! Look at line 63 of the code. Uncomment (in Clojure code that is after <code>;</code> is ignored by the compiler) and enjoy.</li>
+        <li>Let's add some flags to the clocks! Look at line 63 of the code. Uncomment (in Clojure code that is after <code>;</code> is ignored by the compiler) and enjoy.</li>
         <li>
           Look at <code>city-data</code>, what does it mean? What do the curly braces mean?
           <pre>
@@ -139,27 +139,31 @@
           </i>
         </li>
         <li>
-          What is <code>def</code> in the example above? Find more info in <a href="http://cljs.info/cheatsheet/"> the clojure cheat sheet</a>
+          What is <code>def</code> in the example above? Find more info in <a href="http://cljs.info/cheatsheet/" target="_blank"> the clojure cheat sheet.</a>
         </li>
       </ol>
 
-      <h3 id="secondpartloopingmapreducevectorsmap">Second part: lists and maps</h3>
+      <h3 id="secondpartloopingmapreducevectorsmap">Second part: sequences and maps</h3>
 
       <ol>
-        <li> Look again at <code> city data</code>, it is a map! Go to the Clojurescript repl. If you just type city-maps and press enter you should get the content of the map. Using <a href="https://clojuredocs.org/clojure.core/get-in">get-in</a> try to get time-diff for Rome.</li>
-        <li> As we noticed above with the map, we can get the flag-url and the time-diff PER city! Now we would like to know all the cities available. To do so go to the repl and use the function <a href="https://clojuredocs.org/clojure.core/keys">keys</a> on city maps to get the list of cities!</li>
+        <li> Look again at <code> city data</code>, it is a map! Go to the ClojureScript REPL in the editor. If you just type <code>city-maps</code> and press ENTER you should get the content of the map. Using <a href="https://clojuredocs.org/clojure.core/get-in" target="_blank"><code>get-in</code>code></a> try to get <code>time-diff</code> for Rome.</li>
+        <li> As we noticed above with <code>city-data</code>, we can get the <code>flag-url</code> and the <code>time-diff</code> PER city! Now we would like to know all the cities available. To do so go to the repl and use the function <a href="https://clojuredocs.org/clojure.core/keys" target="_blank"><code>keys</code></a> on city maps to get the list of cities.</li>
       </ol>
 
-      <h3 id="thirdpart">Third part: Loops</h3>
+      <h3 id="thirdpart">Third part: sequence operations</h3>
       <ol>
-        <li>Look at <code>for</code> (for example in <code>page</code> on line 72), what does it do? Can you add <code>blabla</code> underneath the color-input at line 87? What happens then?</li>
-        <li>Display all flags in the vector how you want on the page (check function <code>flag-img</code>)</li>
+        <li>Look at <a href="https://clojuredocs.org/clojure.core/for" target="_blank"><code>for</code></a> (for example in the <code>for-example-div</code> code on line 72), what does it do?
+
+          Can you add <code>[for-example-div]</code> underneath the <code>color-input</code> at line 87? What happens then?</li>
+        <li>Now display all flags in the vector on the page (check function <code>flag-img</code>)</li>
       </ol>
 
       <h3 id="thirdpartfunctions">Third part: functions</h3>
 
       <ol>
-        <li>View documentation of the function ...</li>
+        <li>
+          View documentation of the function <a href="https://clojuredocs.org/clojure.core/map" target="_blank"><code>map</code></a>
+        </li>
       </ol>
 
       <ul>
@@ -183,30 +187,62 @@
       <h4 id="fourthpart">Fourth part: advanced</h4>
 
       <ul>
-        <li>Get a list of all flag-urls from the city-data</li>
+        <li>
+          Get a list of all <code>flag-urls</code> from <code>city-data</code>
+          <i>
+            <i class="fas fa-smile-wink" onclick="toggleVisibility('list-of-flag-urls')"></i>
+            <span id="list-of-flag-urls" style="display: none">
+              First get the values of the map (the data structure with key value pairs) using the function <a href="https://clojuredocs.org/clojure.core/vals" target="_blank"><code>vals</code></a>.
+              Then use the function <a href="https://clojuredocs.org/clojure.core/map" target="_blank"><code>map</code></a> on the result to get the <code>:time-diff</code> out of each element.<br/>
+              Know that a keyword like <code>:time-diff</code> can be used as a function that looks itself up in the map data structure.
+            </span>
+          </i>
+        </li>
         <li>Sort the list of cities and times
+          <i>
+            <i class="fas fa-smile-wink" onclick="toggleVisibility('sort')"></i>
+            <span id="sort" style="display: none">
+              Use <a href="https://clojuredocs.org/clojure.core/sort" target="_blank"><code>sort</code></a>.
+            </span>
+          </i>
+
           <ul>
             <li>first alphabetically</li>
 
-            <li>Then by time</li></ul>
+            <li>
+              Then by time
+              <i>
+                <i class="fas fa-smile-wink" onclick="toggleVisibility('sort-by')"></i>
+                <span id="sort-by" style="display: none">
+                  For this the function <a href="https://clojuredocs.org/clojure.core/sort-by" target="_blank"><code>sort-by</code></a> can be used.
+                  <code>sort-by</code> is a function that sorts a sequence (second argument) using a function (first argument).<br />
+                  And know that keywords like <code>:time-diff</code> can be used as a function.
+                </span>
+              </i>
+
+            </li></ul>
         </li>
 
-        <li>Find the average time-difference</li>
-        <li>Create beautiful clock</li>
+        <li>
+          Find the average time-difference
+          <i>
+            <i class="fas fa-smile-wink" onclick="toggleVisibility('average-time-diff')"></i>
+            <span id="average-time-diff" style="display: none">
+              Get all time-differences, for example with <code>(map :time-diff (vals city-data))</code>. <br/>
+              Then get the average of it by writing your own average function (there is not one build in in Clojure).
+              <a href="https://github.com/clojure-cookbook/clojure-cookbook/blob/master/01_primitive-data/1-20_simple-statistics.asciidoc" target="_blank">
+                Click here for help for writing the function for average (also called mean).
+              </a>
+            </span>
+          </i>
+
+        </li>
+        <li>Bonus question: create more beautiful clock</li>
       </ul>
 
       <h3 id="potentialextrastufftodoforearlyfinishers">Potential extra stuff to do for early finishers</h3>
 
       <ul>
-        <li>
-          <a
-            href="http://www.4clojure.com"
-            target="_blank"
-          >
-            4clojure.com questions (can be (really) hard)
-          </a>
-        </li>
-
         <li>
           <a
             href="https://maria.cloud"
@@ -220,11 +256,10 @@
             href="http://www.4clojure.com"
             target="_blank"
           >
-            4clojure.com questions
+            4clojure.com questions (can be (really) hard)
           </a>
         </li>
-
-        <li>Build own thing! Feel free to discuss this with the tutors and they will help you get started!</li>
+        <li>Build your own thing! What do you want to make? Feel free to discuss this with the tutors. They will help you get started!</li>
       </ul>
 
       <h3 id="extras">Extra information</h3>
@@ -235,6 +270,14 @@
             target="_blank"
           >
             How the parentheses work in this editor
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://clojurebridgelondon.github.io/community-docs/index.html"
+            target="_blank"
+          >
+            ClojureBridge community docs with lots of examples
           </a>
         </li>
         <li>
@@ -250,7 +293,7 @@
             href="https://github.com/tallesl/Rich-Hickey-fanclub"
             target="_blank"
           >
-            Talks by creator of Clojure (Rich Hickey)
+            Bonus: talks by creator of Clojure (Rich Hickey)
           </a>
         </li>
       </ul>
