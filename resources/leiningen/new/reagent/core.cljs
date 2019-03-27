@@ -32,9 +32,7 @@
                          (reset! time-color (-> event .-target .-value)))}]])
 
 (def base-url
-  (str (-> js/window .-location .-protocol)
-       "//"
-       (-> js/window .-location .-host)))
+  "../../../")
 
 (def city-data
   {"Amsterdam"     {:time-diff  0 :flag-url (str base-url "/flags/netherlands.png")}
