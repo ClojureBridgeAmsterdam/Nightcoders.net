@@ -64,7 +64,7 @@
     time-str]])
 
 ;; Use for in function below to .........
-(defn for-example-div []
+(defn one-to-ten-div []
   [:div
    (doall
     (for [x (range 10)]

@@ -165,9 +165,9 @@
 
       <h3 id="thirdpart">Third part: sequence operations</h3>
       <ol>
-        <li>Look at <a href="https://clojuredocs.org/clojure.core/for" target="_blank"><code>for</code></a> (for example in the <code>for-example-div</code> code on line 72), what does it do?
+        <li>Look at <a href="https://clojuredocs.org/clojure.core/for" target="_blank"><code>for</code></a> (for example in the <code>one-to-ten-div</code> code on line 72), what does it do?
 
-          Can you add <code>[for-example-div]</code> underneath the <code>color-input</code> at line 87? What happens then?</li>
+          Can you add <code>[one-to-ten-div]</code> underneath the <code>color-input</code> at line 87? What happens then?</li>
         <li>Now display all flags in the vector on the page (check function <code>flag-img</code>)</li>
       </ol>
 
@@ -177,23 +177,28 @@
         <li>
           View documentation of the function <a href="https://clojuredocs.org/clojure.core/map" target="_blank"><code>map</code></a>.
         </li>
-      </ol>
 
-      <ul>
         <!-- <li>Make the clock do blabla</li> -->
         <!-- <li>Make the clock go twice as fast</li> (difficult because it uses js/Date.) -->
 
-        <li>Fill some functions</li>
-
-        <li>What argument goes in</li>
-
-        <li>One line is missing</li>
-
-        <li>Third line is write whole function</li>
-
-        <li>Give name</li>
-
-      </ul>
+        <li>
+          Hotel Fictitious gives us, an in our eyes ridiculous, requirement. We have to add the numbers from 1 to 10 underneath each clock. The customer is king. So let's implement it.
+          <br />
+          <p>
+            <i class="fas fa-info-circle"></i>
+            We have created this function before so we can reuse it. Know that the compiler reads the file from beginning to end. So the definition has to be moved before the usage.
+          </p>
+        </li>
+        <li>
+          Reverse the numbers so that 10 is displayed first counting down to 1.
+          <i>
+            <i class="fas fa-smile-wink" onclick="toggleVisibility('reverse-it')"></i>
+            <span id="reverse-it" style="display: none">
+              <a href="https://clojuredocs.org/clojure.core/reverse" target="_blank"><code>reverse</code></a>
+            </span>
+          </i>
+        </li>
+      </ol>
 
       <h4 id="fourthpart">Fourth part: advanced</h4>
 
